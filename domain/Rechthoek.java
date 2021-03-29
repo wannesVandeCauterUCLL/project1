@@ -36,4 +36,13 @@ public class Rechthoek {
         return false;
     }
 
+    public String toString(){
+        String ret = "Rechthoek: linkerbovenhoek: ";
+        ret += this.linkerBovenHoek.toString();
+        ret += " - breedte: ";
+        ret += this.breedte;
+        ret += " - hoogte: ";
+        ret += this.hoogte;
+        return ret;
+    }
 }

@@ -23,6 +23,7 @@ public class SpelerApp {
 
         invoerNaamVeld.setOnAction(eventIngaveNaam -> {
             try {
+
                 speler = new Speler(invoerNaamVeld.getText());
                 root.getChildren().clear();
 
@@ -30,9 +31,13 @@ public class SpelerApp {
                 uitvoer.setText(speler.toString());
                 root.add(uitvoer, 0, 1);
 
+                if(speler == null){
+                    throw new DomainException("invalid speler");
+                }
+
             } catch (DomainException e) {
                 invoerNaamVeld.clear();
-				
+
                 foutenboodschap.setTitle("Warning");
                 foutenboodschap.setContentText(e.getMessage());
                 foutenboodschap.showAndWait();

@@ -10,6 +10,9 @@ public class Rechthoek {
         if (breedte <= 0 || hoogte <= 0){
             throw new DomainException("Rechthoek heeft een breedte en hoogte groter dan 0 nodig.");
         }
+        if (this.linkerBovenHoek == null){
+            throw new DomainException("Rechthoek heeft een linkerbovenhoek nodig.");
+        }
         this.breedte = breedte;
         this.hoogte = hoogte;
         this.linkerBovenHoek = linkerBovenhoek;
@@ -23,7 +26,7 @@ public class Rechthoek {
         return this.hoogte;
     }
 
-    public Punt getLinkerBovenHoek(){
+    public Punt getLinkerBovenhoek(){
         return this.linkerBovenHoek;
     }
 
@@ -45,4 +48,5 @@ public class Rechthoek {
         ret += this.hoogte;
         return ret;
     }
+
 }

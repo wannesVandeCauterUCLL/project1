@@ -49,4 +49,3 @@ public class Rechthoek {
         return ret;
     }
 
-}

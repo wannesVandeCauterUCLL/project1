@@ -27,5 +27,10 @@ public class Speler {
         return false;
     }
 
+    public String toString(){
+        return this.naam + " "+Integer.toString(this.score);
+    }
+
+
 
 }

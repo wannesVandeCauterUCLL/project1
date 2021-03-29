@@ -7,10 +7,10 @@ public class Rechthoek {
     private Punt linkerBovenHoek;
 
     public Rechthoek(Punt linkerBovenhoek, int breedte, int hoogte) throws DomainException {
-        if (breedte <= 0 || hoogte <= 0){
+        if (breedte <= 0 || hoogte <= 0) {
             throw new DomainException("Rechthoek heeft een breedte en hoogte groter dan 0 nodig.");
         }
-        if (this.linkerBovenHoek == null){
+        if (this.linkerBovenHoek == null) {
             throw new DomainException("Rechthoek heeft een linkerbovenhoek nodig.");
         }
         this.breedte = breedte;
@@ -18,28 +18,28 @@ public class Rechthoek {
         this.linkerBovenHoek = linkerBovenhoek;
     }
 
-    public int getBreedte(){
+    public int getBreedte() {
         return this.breedte;
     }
 
-    public int getHoogte(){
+    public int getHoogte() {
         return this.hoogte;
     }
 
-    public Punt getLinkerBovenhoek(){
+    public Punt getLinkerBovenhoek() {
         return this.linkerBovenHoek;
     }
 
-    public boolean equals(Object o){
-        if (o instanceof Rechthoek){
-            if (this.linkerBovenHoek == ((Rechthoek) o).linkerBovenHoek && this.hoogte == ((Rechthoek) o).hoogte && this.breedte == ((Rechthoek) o).breedte){
+    public boolean equals(Object o) {
+        if (o instanceof Rechthoek) {
+            if (this.linkerBovenHoek == ((Rechthoek) o).linkerBovenHoek && this.hoogte == ((Rechthoek) o).hoogte && this.breedte == ((Rechthoek) o).breedte) {
                 return true;
             }
         }
         return false;
     }
 
-    public String toString(){
+    public String toString() {
         String ret = "Rechthoek: linkerbovenhoek: ";
         ret += this.linkerBovenHoek.toString();
         ret += " - breedte: ";
@@ -48,5 +48,7 @@ public class Rechthoek {
         ret += this.hoogte;
         return ret;
     }
+}
+
 }
 

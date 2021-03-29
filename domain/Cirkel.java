@@ -5,7 +5,16 @@ public class Cirkel {
     private int radius;
         public Cirkel(Punt punt, int radius){
             this.middelPunt = punt;
-            this.radius = radius;
+            if(punt == null){
+                throw new IllegalArgumentException("punt mag niet leeg zijn");
+            }
+            if(radius<=0){
+               throw new IllegalArgumentException("int: Radius, kan niet <0 of 0 zijn.");
+            }
+            else{
+                this.radius = radius;
+            }
+
 
         }
     private void setMiddelPunt(Punt punt){

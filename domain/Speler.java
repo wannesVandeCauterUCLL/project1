@@ -5,10 +5,11 @@ public class Speler {
     private String naam;
     private int score;
 
-    public Speler(String naam) {
+    public Speler(String naam){
         this.naam = naam;
         this.score = score;
     }
+
 
     public int getScore() {
         return score;
@@ -28,7 +29,7 @@ public class Speler {
     }
 
     public String toString(){
-        return this.naam + " "+Integer.toString(this.score);
+        return "Speler: "+this.naam + " Score:"+Integer.toString(this.score);
     }
 
 

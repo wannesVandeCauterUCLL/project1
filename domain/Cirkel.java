@@ -20,5 +20,11 @@ public class Cirkel {
         public int getRadius(){
             return radius;
         }
+        public boolean equals(Cirkel cirkel){
+            return this.middelPunt == cirkel.middelPunt && this.radius == cirkel.radius;
+        }
+        public String toString(){
+            return "Cirkel: middelpunt: ("+middelPunt.getX()+", "+middelPunt.getY()+") - straal:"+radius;
+        }
 
 }

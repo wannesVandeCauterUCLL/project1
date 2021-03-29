@@ -10,8 +10,6 @@ public class Punt {
         this.y = y;
     }
 
-
-
     public int getY() {
         return this.y;
     }
@@ -24,7 +22,8 @@ public class Punt {
         this.x = x;
     }
 
-    public boolean equals(Punt _punt){
+    public boolean equals(Punt _punt) throws DomainException {
+        if(_punt == null) return false;
         if(this.x == _punt.x && this.y == _punt.y) return true;
         return false;
     }

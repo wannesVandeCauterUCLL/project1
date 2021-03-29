@@ -24,6 +24,11 @@ public class SpelerApp {
         invoerNaamVeld.setOnAction(eventIngaveNaam -> {
             try {
 
+                String spelerNaam = invoerNaamVeld.getText();
+                if(spelerNaam.length() == 0){
+                    throw new DomainException("De spelernaam moet minstens 1 spatie bevatten");
+                }
+
                 speler = new Speler(invoerNaamVeld.getText());
                 root.getChildren().clear();
 

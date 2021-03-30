@@ -6,6 +6,9 @@ public class Rechthoek extends Vorm{
     private int hoogte;
     private Punt linkerBovenHoek;
 
+    public Rechthoek() {
+    }
+
     public Omhullende getOmhullende() {
         return omhullende;
     }
@@ -49,7 +52,7 @@ public class Rechthoek extends Vorm{
 
     public boolean equals(Object o) {
         if (o instanceof Rechthoek) {
-            if (this.linkerBovenHoek == ((Rechthoek) o).linkerBovenHoek && this.hoogte == ((Rechthoek) o).hoogte && this.breedte == ((Rechthoek) o).breedte) {
+            if (this.linkerBovenHoek.equals(((Rechthoek) o).linkerBovenHoek) && this.hoogte == ((Rechthoek) o).hoogte && this.breedte == ((Rechthoek) o).breedte) {
                 return true;
             }
         }

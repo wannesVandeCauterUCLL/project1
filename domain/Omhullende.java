@@ -1,47 +1,59 @@
 package domain;
 
-public class Omhullende extends Rechthoek {
+public class Omhullende {
 
-    public int getMinmiumX() {
-        return minmiumX;
+    private Punt positieLinksBoven;
+    private int breedte;
+    private int hoogte;
+
+
+    public Omhullende(Punt linkerBovenhoek, int breedte, int hoogte) {
+        this.positieLinksBoven = linkerBovenhoek;
+        this.breedte = breedte;
+        this.hoogte = hoogte;
     }
 
-    public int getMinmiumY() {
-        return minmiumY;
+    public Punt getLinkerBovenhoek(){
+        return positieLinksBoven;
+    }
+    public int getBreedte(){
+        return breedte;
+    }
+    public int getHoogte(){
+        return hoogte;
     }
 
-    public int getMaximumX() {
-        return maximumX;
+    public int getMinimumX(){
+        return this.getLinkerBovenhoek().getX();
     }
 
-    public int getMaximumY() {
-        return maximumY;
+    public int getMinimumY(){
+        return this.getLinkerBovenhoek().getY();
     }
 
-    private int minmiumX;
-    private int minmiumY;
-    private int maximumX;
-    private int maximumY;
-
-
-    public Omhullende(Punt linkerBovenhoek, int breedte, int hoogte) throws DomainException {
-
+    public int getMaximumX(){
+        return this.getMinimumX() + this.getBreedte();
     }
 
-/*    public static Rechthoek getOmhullende(Object vorm) throws DomainException {
+    public int getMaximumY(){
+        return this.getMinimumY() + this.getHoogte();
+    }
 
-        if(vorm instanceof Rechthoek){
-            Rechthoek rechthoek = ((Rechthoek) vorm);
-            int minmiumX = rechthoek.getLinkerBovenhoek().getX();
-            int maximumX = minmiumX + rechthoek.getBreedte();
-            int minmiumY = rechthoek.getLinkerBovenhoek().getY();
-            int maximumY = minmiumY + rechthoek.getHoogte();
-
-            return new Omhullende(rechthoek.getLinkerBovenhoek(), rechthoek.getBreedte(),rechthoek.getHoogte() );
+    public boolean equals(Object o) {
+        if (o instanceof Omhullende) {
+            if (this.getLinkerBovenhoek().equals(((Omhullende) o).getLinkerBovenhoek()) && this.getHoogte() == ((Omhullende) o).getHoogte() && this.getBreedte() == ((Omhullende) o).getBreedte()) {
+                return true;
+            }
         }
+        return false;
+    }
 
-        return null;
-    }*/
+    public String toString(){
+        String omh = "Rechthoek: positie: "+this.getLinkerBovenhoek().toString()+" - breedte: "+this.getBreedte()+" - hoogte: "+this.getHoogte();
+        omh += "\n";
+        omh += "Omhullende: "+ this.getLinkerBovenhoek().toString()+" - "+this.getBreedte()+ " - "+this.getHoogte();
+        return omh;
+    }
 
 
 }

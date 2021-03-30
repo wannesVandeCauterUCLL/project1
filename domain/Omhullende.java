@@ -28,7 +28,7 @@ public class Omhullende extends Rechthoek {
         super(linkerBovenhoek, breedte, hoogte);
     }
 
-    public static Rechthoek getOmhullende(Object vorm){
+    public static Rechthoek getOmhullende(Object vorm) throws DomainException {
 
         if(vorm instanceof Rechthoek){
             Rechthoek rechthoek = ((Rechthoek) vorm);
@@ -36,6 +36,8 @@ public class Omhullende extends Rechthoek {
             int maximumX = minmiumX + rechthoek.getBreedte();
             int minmiumY = rechthoek.getLinkerBovenhoek().getY();
             int maximumY = minmiumY + rechthoek.getHoogte();
+
+            return new Omhullende(rechthoek.getLinkerBovenhoek(), rechthoek.getBreedte(),rechthoek.getHoogte() );
         }
 
         return null;

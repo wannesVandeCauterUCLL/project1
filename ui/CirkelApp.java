@@ -123,4 +123,5 @@ public class CirkelApp {
         root.getChildren().remove(invoerStraal);
 
     }
+
 }

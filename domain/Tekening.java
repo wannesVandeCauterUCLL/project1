@@ -12,11 +12,14 @@ public class Tekening {
         if(isValidNaam(naamTekening)){
             this.naamTekening = naamTekening;
         }
+        else{
+            throw new IllegalArgumentException("Naam mag niet leeg zijn.");
+        }
         vormen = new ArrayList<>();
     }
 
     public static boolean isValidNaam(String naamTekening){
-        return naamTekening != null && naamTekening != "" && naamTekening != " ";
+        return naamTekening != null && !naamTekening.equals("") && !naamTekening.equals(" ");
     }
 
     public String getNaam(){
@@ -26,6 +29,9 @@ public class Tekening {
     public void voegToe(Vorm vorm){
         if (vorm != null && !this.bevat(vorm)) {
         vormen.add(vorm);}
+        else{
+            throw new IllegalArgumentException("Vorm mag niet leeg zijn.");
+        }
     }
 
     public Vorm getVorm(int vorm){

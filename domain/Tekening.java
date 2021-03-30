@@ -1,6 +1,50 @@
 package domain;
+import java.util.*;
 
 public class Tekening {
-    public Tekening() {
+    String naamTekening;
+    public static final int MIN_X = 0;public static final int MIN_Y = 0;
+    public static final int MAX_X = 399; public static final int MAX_Y = 399;
+    ArrayList<Vorm> vormen;
+
+
+    public Tekening(String naamTekening) {
+        if(isValidNaam(naamTekening)){
+            this.naamTekening = naamTekening;
+        }
+        vormen = new ArrayList<>();
+    }
+
+    public static boolean isValidNaam(String naamTekening){
+        return naamTekening != null && naamTekening != "" && naamTekening != " ";
+    }
+
+    public String getNaam(){
+        return this.naamTekening;
+    }
+
+    public void voegToe(Vorm vorm){
+        if (vorm != null && !this.bevat(vorm)) {
+        vormen.add(vorm);}
+    }
+
+    public Vorm getVorm(int vorm){
+        return vormen.get(vorm);
+    }
+
+    public int getAantalVormen(){
+        return vormen.size();
+    }
+
+    public void verwijder(Vorm vorm){
+        vormen.remove(vorm);
+    }
+
+    public boolean bevat(Vorm vorm){
+        return vormen.contains(vorm);
+    }
+
+    public boolean equals(Tekening tekening){
+        return this.getAantalVormen() == tekening.getAantalVormen() && this.vormen.equals(tekening.vormen);
     }
 }

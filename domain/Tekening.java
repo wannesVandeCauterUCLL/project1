@@ -27,7 +27,8 @@ public class Tekening {
 
     public void voegToe(Vorm vorm){
         if (vorm != null && !this.bevat(vorm)) {
-        vormen.add(vorm);}
+            vormen.add(vorm);
+        }
     }
 
     public Vorm getVorm(int vorm){
@@ -43,11 +44,11 @@ public class Tekening {
     }
 
     public boolean bevat(Vorm vorm){
-        return vormen.contains(vorm);
+        return this.vormen.contains(vorm);
     }
 
     public boolean bevatVorm(Vorm vorm){
-        return vormen.contains(vorm);
+        return bevat(vorm);
     }
 
     public boolean equals(Tekening tekening){

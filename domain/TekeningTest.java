@@ -18,7 +18,7 @@ public class TekeningTest {
     private Vorm schouwNietInTekening;
 
     @Before
-    public void setUp() {
+    public void setUp() throws DomainException {
         gebouw = new Rechthoek(new Punt(100, 200), 200, 180);
         dak = new Driehoek(new Punt(100, 200), new Punt(300, 200), new Punt(200, 100));
         deur = new Rechthoek(new Punt(130, 280), 50,100);
@@ -101,7 +101,56 @@ public class TekeningTest {
         assertTrue(huis.equals(huisMetSchouw));
     }
 
+    //zelf geschreven testen
+    @Test
+    public void figurenWordenToegevoegd() throws DomainException {
+        Tekening tek = new Tekening("tek");
+        assertEquals(tek.getAantalVormen(), 0);
+        tek.voegToe(gebouw);
+        assertEquals(tek.getAantalVormen(), 1);
+        tek.voegToe(gebouw);
+        assertEquals(tek.getAantalVormen(), 1);
+        tek.voegToe(raam);
+        assertEquals(tek.getAantalVormen(), 2);
 
+        Vorm gebouwClone = new Rechthoek(new Punt(100,200), 200, 100);
+        tek.voegToe(gebouwClone);
+        assertEquals(tek.getAantalVormen(), 2);
+        assertTrue(tek.bevatVorm(gebouw));
+        assertTrue(tek.bevatVorm(raam));
+    }
+
+    @Test
+    public void getVormTest(){
+        Tekening tek = this.createHuisMetSchouw();
+
+        assertEquals(tek.getVorm(0), gebouw);
+        assertEquals(tek.getVorm(1), dak);
+        assertEquals(tek.getVorm(2), deur);
+        assertEquals(tek.getVorm(3), raam);
+        assertEquals(tek.getVorm(4), deurknop);
+        assertEquals(tek.getVorm(5), raambalk1);
+        assertEquals(tek.getVorm(6), raambalk2);
+        assertEquals(tek.getVorm(7), schouwNietInTekening);
+
+    }
+
+    @Test
+    public void verwijderTest(){
+        Tekening tek = this.createHuisMetSchouw();
+
+        assertTrue(tek.bevatVorm(gebouw));
+        tek.verwijder(gebouw);
+        assertEquals(tek.getAantalVormen(), 7);
+        assertFalse(tek.bevatVorm(gebouw));
+
+        assertTrue(tek.bevatVorm(raambalk1));
+        tek.verwijder(raambalk1);
+        assertEquals(tek.getAantalVormen(), 6);
+        assertFalse(tek.bevatVorm(raambalk1));
+    }
+
+    //hulpfuncties
     public Tekening createHuisMetSchouw() {
         Tekening huisMetSchouw = new Tekening("huisMetSchouw");
         huisMetSchouw.voegToe(gebouw);

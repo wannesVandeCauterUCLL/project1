@@ -63,7 +63,7 @@ public class Driehoek {
 
     public String toString() {
         String result = "hoekpunt1: (%d, %d) - hoekpunt2: (%d, %d) - hoekpunt3: (%d,%d)";
-        String.format(result, hoekpunt1.getX(),hoekpunt1.getX(),hoekpunt2.getX(),hoekpunt2.getY(),hoekpunt3.getX(),hoekpunt3.getY())
+        String.format(result, hoekpunt1.getX(),hoekpunt1.getX(),hoekpunt2.getX(),hoekpunt2.getY(),hoekpunt3.getX(),hoekpunt3.getY());
         return result;
     }
 }

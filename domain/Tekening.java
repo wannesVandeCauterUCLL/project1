@@ -7,7 +7,6 @@ public class Tekening {
     public static final int MAX_X = 399; public static final int MAX_Y = 399;
     ArrayList<Vorm> vormen;
 
-
     public Tekening(String naamTekening) {
         if(isValidNaam(naamTekening)){
             this.naamTekening = naamTekening;
@@ -28,9 +27,7 @@ public class Tekening {
 
     public void voegToe(Vorm vorm){
         if (vorm != null && !this.bevat(vorm)) {
-        vormen.add(vorm);}
-        else{
-            throw new IllegalArgumentException("Vorm mag niet leeg zijn.");
+            vormen.add(vorm);
         }
     }
 
@@ -47,14 +44,20 @@ public class Tekening {
     }
 
     public boolean bevat(Vorm vorm){
-        return vormen.contains(vorm);
+        return this.vormen.contains(vorm);
     }
 
     public boolean bevatVorm(Vorm vorm){
-        return vormen.contains(vorm);
+        return bevat(vorm);
     }
 
     public boolean equals(Tekening tekening){
-        return this.getAantalVormen() == tekening.getAantalVormen() && this.vormen.equals(tekening.vormen);
+        if(tekening == null){
+            return  false;
+        }
+        else{
+            return this.getAantalVormen() == tekening.getAantalVormen() && this.vormen.containsAll(tekening.vormen);
+        }
+
     }
 }

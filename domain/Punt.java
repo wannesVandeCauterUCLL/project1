@@ -53,4 +53,9 @@ public class Punt{
         }
 
     };
+
+    public boolean compareTo(Punt _punt) {
+        if(java.util.Objects.equals(this, _punt)) return true;
+        else return false;
+    }
 }

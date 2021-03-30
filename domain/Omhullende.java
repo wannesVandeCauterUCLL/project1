@@ -1,7 +1,6 @@
 package domain;
 
-public class Omhullende {
-<<<<<<< HEAD
+public class Omhullende extends Rechthoek {
 
     public int getMinmiumX() {
         return minmiumX;
@@ -24,6 +23,11 @@ public class Omhullende {
     private int maximumX;
     private int maximumY;
 
+
+    public Omhullende(Punt linkerBovenhoek, int breedte, int hoogte) throws DomainException {
+        super(linkerBovenhoek, breedte, hoogte);
+    }
+
     public Rechthoek getOmhullende(Object vorm){
 
         if(vorm instanceof Rechthoek){
@@ -37,8 +41,5 @@ public class Omhullende {
         return null;
     }
 
-=======
-    public Omhullende(Punt linkerBovenhoek, int breedte, int hoogte) {
-    }
->>>>>>> a020e139aad042b956a8a29314cefc3d3d65be64
+
 }

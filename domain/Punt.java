@@ -1,6 +1,8 @@
 package domain;
 
-public class Punt {
+import java.util.Comparator;
+
+public class Punt{
 
     private int x;
     private int y;
@@ -31,4 +33,24 @@ public class Punt {
     public String toString(){
         return "X: "+this.x +" Y: "+this.y;
     }
+
+    static Comparator<Punt> xComparator = new Comparator<Punt>() {
+        @Override
+        public int compare(Punt p1, Punt p2) {
+            if(p1.x == p2.x) return 0;
+            if(p1.x < p2.x) return -1;
+            else return 1;
+        }
+
+    };
+
+    static Comparator<Punt> yComparator = new Comparator<Punt>() {
+        @Override
+        public int compare(Punt p1, Punt p2) {
+            if(p1.y == p2.y) return 0;
+            if(p1.y < p2.y) return -1;
+            else return 1;
+        }
+
+    };
 }

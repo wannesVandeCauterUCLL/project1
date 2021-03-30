@@ -1,6 +1,7 @@
 package domain;
 
 public class Omhullende {
+<<<<<<< HEAD
 
     public int getMinmiumX() {
         return minmiumX;
@@ -36,4 +37,8 @@ public class Omhullende {
         return null;
     }
 
+=======
+    public Omhullende(Punt linkerBovenhoek, int breedte, int hoogte) {
+    }
+>>>>>>> a020e139aad042b956a8a29314cefc3d3d65be64
 }

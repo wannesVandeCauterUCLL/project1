@@ -24,7 +24,7 @@ public class Punt{
         this.x = x;
     }
 
-    public boolean equals(Punt _punt) throws DomainException {
+    public boolean equals(Punt _punt) {
         if(_punt == null) return false;
         if(this.x == _punt.x && this.y == _punt.y) return true;
         return false;

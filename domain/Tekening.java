@@ -44,6 +44,10 @@ public class Tekening {
         return vormen.contains(vorm);
     }
 
+    public boolean bevatVorm(Vorm vorm){
+        return vormen.contains(vorm);
+    }
+
     public boolean equals(Tekening tekening){
         return this.getAantalVormen() == tekening.getAantalVormen() && this.vormen.equals(tekening.vormen);
     }

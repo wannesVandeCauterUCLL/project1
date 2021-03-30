@@ -22,22 +22,31 @@ public class Driehoek extends Vorm {
     private Punt hoekpunt2;
     private Punt hoekpunt3;
 
-    public Driehoek(Punt hoekpunt1, Punt hoekpunt2, Punt hoekpunt3){
-        super();
+    ArrayList<Punt> hoekpuntenLijst;
+    public Driehoek(Punt hoekpunt1, Punt hoekpunt2, Punt hoekpunt3) throws DomainException {
+
+        hoekpuntenLijst = new ArrayList<Punt>(Arrays.asList(hoekpunt1, hoekpunt2, hoekpunt3));
+        for(Punt punt : hoekpuntenLijst){
+            System.out.println(punt);
+            if(punt == null){
+                throw new DomainException("Hoekpunt is null");
+            }
+
+        }
         this.hoekpunt1 = hoekpunt1;
         this.hoekpunt2 = hoekpunt2;
         this.hoekpunt3 = hoekpunt3;
+
+
     }
 
     public boolean liggenOpEenLijn(Punt p1,Punt p2,Punt p3){
-
-        ArrayList<Punt> puntSet = new ArrayList<Punt> (Arrays.asList(p1, p2,p3));
 
         ArrayList<Integer> xCompare = new ArrayList<Integer>();
         ArrayList<Integer> yCompare = new ArrayList<Integer>();
 
 
-        for(Punt punt: puntSet){
+        for(Punt punt: hoekpuntenLijst){
             if(xCompare.contains(punt)) xCompare.add(1);
             if(yCompare.contains(punt)) yCompare.add(1);
 
@@ -50,15 +59,24 @@ public class Driehoek extends Vorm {
 
     }
 
+    public Boolean equels(Driehoek _driehoek){
+        Collections.sort(hoekpuntenLijst, Punt.xComparator);
+        Collections.sort(hoekpuntenLijst, Punt.yComparator);
+        Collections.sort(_driehoek.hoekpuntenLijst , Punt.xComparator);
+        Collections.sort(_driehoek.hoekpuntenLijst, Punt.yComparator);
+
+        if(this.hoekpuntenLijst == _driehoek.hoekpuntenLijst) return true;
+        else return false;
+    }
+
     public void sorteerHoekpunten(){
-        ArrayList<Punt> puntSet = new ArrayList<Punt> (Arrays.asList(hoekpunt1, hoekpunt2,hoekpunt3));
 
-        Collections.sort(puntSet, Punt.xComparator);
-        Collections.sort(puntSet, Punt.yComparator);
+        Collections.sort(hoekpuntenLijst, Punt.xComparator);
+        Collections.sort(hoekpuntenLijst, Punt.yComparator);
 
-        hoekpunt1 = puntSet.get(0);
-        hoekpunt2 = puntSet.get(1);
-        hoekpunt3 = puntSet.get(2);
+        hoekpunt1 = hoekpuntenLijst.get(0);
+        hoekpunt2 = hoekpuntenLijst.get(1);
+        hoekpunt3 = hoekpuntenLijst.get(2);
 
     }
 

@@ -113,7 +113,7 @@ public class TekeningTest {
         tek.voegToe(raam);
         assertEquals(tek.getAantalVormen(), 2);
 
-        Vorm gebouwClone = new Rechthoek(new Punt(100,200), 200, 100);
+        Vorm gebouwClone = new Rechthoek(new Punt(100, 200), 200, 180);
         tek.voegToe(gebouwClone);
         assertEquals(tek.getAantalVormen(), 2);
         assertTrue(tek.bevatVorm(gebouw));

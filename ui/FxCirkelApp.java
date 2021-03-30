@@ -15,10 +15,10 @@ public class FxCirkelApp extends Application {
         GridPane root = new GridPane();
         Scene scene = new Scene(root, 300,50);
 
-        new SpelerApp(root);
+        new CirkelApp(root);
 
         primaryStage.setScene(scene);
-        primaryStage.setTitle("Speler App");
+        primaryStage.setTitle("Cirkel App");
         primaryStage.show();
     }
 

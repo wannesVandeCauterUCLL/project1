@@ -25,21 +25,23 @@ public class Omhullende extends Rechthoek {
 
 
     public Omhullende(Punt linkerBovenhoek, int breedte, int hoogte) throws DomainException {
-        super(linkerBovenhoek, breedte, hoogte);
+
     }
 
-    public Rechthoek getOmhullende(Object vorm){
+/*    public static Rechthoek getOmhullende(Object vorm) throws DomainException {
 
         if(vorm instanceof Rechthoek){
             Rechthoek rechthoek = ((Rechthoek) vorm);
-            minmiumX = rechthoek.getLinkerBovenhoek().getX();
-            maximumX = minmiumX + rechthoek.getBreedte();
-            minmiumY = rechthoek.getLinkerBovenhoek().getY();
-            maximumY = minmiumY + rechthoek.getHoogte();
+            int minmiumX = rechthoek.getLinkerBovenhoek().getX();
+            int maximumX = minmiumX + rechthoek.getBreedte();
+            int minmiumY = rechthoek.getLinkerBovenhoek().getY();
+            int maximumY = minmiumY + rechthoek.getHoogte();
+
+            return new Omhullende(rechthoek.getLinkerBovenhoek(), rechthoek.getBreedte(),rechthoek.getHoogte() );
         }
 
         return null;
-    }
+    }*/
 
 
 }

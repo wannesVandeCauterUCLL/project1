@@ -51,6 +51,12 @@ public class Tekening {
     }
 
     public boolean equals(Tekening tekening){
-        return this.getAantalVormen() == tekening.getAantalVormen() && this.vormen.containsAll(tekening.vormen);
+        if(tekening == null){
+            return  false;
+        }
+        else{
+            return this.getAantalVormen() == tekening.getAantalVormen() && this.vormen.containsAll(tekening.vormen);
+        }
+
     }
 }

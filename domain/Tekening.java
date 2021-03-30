@@ -19,7 +19,7 @@ public class Tekening {
     }
 
     public static boolean isValidNaam(String naamTekening){
-        return naamTekening != null && naamTekening != "" && naamTekening != " ";
+        return naamTekening != null && !naamTekening.equals("") && !naamTekening.equals(" ");
     }
 
     public String getNaam(){

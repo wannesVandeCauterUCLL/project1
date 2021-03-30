@@ -25,10 +25,10 @@ public class Omhullende extends Rechthoek {
 
 
     public Omhullende(Punt linkerBovenhoek, int breedte, int hoogte) throws DomainException {
-        super(linkerBovenhoek, breedte, hoogte);
+
     }
 
-    public static Rechthoek getOmhullende(Object vorm) throws DomainException {
+/*    public static Rechthoek getOmhullende(Object vorm) throws DomainException {
 
         if(vorm instanceof Rechthoek){
             Rechthoek rechthoek = ((Rechthoek) vorm);
@@ -41,7 +41,7 @@ public class Omhullende extends Rechthoek {
         }
 
         return null;
-    }
+    }*/
 
 
 }

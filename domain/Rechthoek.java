@@ -6,6 +6,10 @@ public class Rechthoek extends Vorm{
     private int hoogte;
     private Punt linkerBovenHoek;
 
+    public Omhullende getOmhullende() {
+        return omhullende;
+    }
+
     private Omhullende omhullende;
 
     public Rechthoek(Punt linkerBovenhoek, int breedte, int hoogte) throws DomainException {
@@ -21,7 +25,7 @@ public class Rechthoek extends Vorm{
             this.linkerBovenHoek = linkerBovenhoek;
 
 
-            this.omhullende = ((Omhullende) omhullende.getOmhullende(this));
+            this.omhullende = new Omhullende(linkerBovenhoek, breedte,hoogte);
 
 
         }catch(DomainException e){

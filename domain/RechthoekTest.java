@@ -82,4 +82,18 @@ public class RechthoekTest {
 	public void equals_moet_false_teruggeven_als_parameter_null(){
 		assertFalse(rechthoek.equals(null));
 	}
+
+
+	@Test
+	public void klopt_de_omhullend() throws DomainException {
+		Punt linkerBovenHoek = new Punt(100,100);
+		int breedte = 100;
+		int hoogte = 100;
+		Rechthoek rechthoek = new Rechthoek(linkerBovenHoek,breedte, hoogte);
+		Omhullende omhullende = new Omhullende(linkerBovenhoek,breedte,hoogte);
+		assertTrue(rechthoek.equals(omhullende.getOmhullende(rechthoek)));
+
+
+	}
+
 }

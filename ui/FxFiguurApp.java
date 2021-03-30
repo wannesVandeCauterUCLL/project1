@@ -1,5 +1,6 @@
 package ui;
 
+import domain.Tekening;
 import javafx.application.Application;
 import javafx.scene.Scene;
 import javafx.scene.layout.GridPane;
@@ -12,7 +13,8 @@ public class FxFiguurApp extends Application {
     public void start(Stage primaryStage) {
         GridPane root = new GridPane();
         Scene scene = new Scene(root, 800,600);
-        new FiguurApp(root);
+        Tekening tekening = new Tekening("tekening");
+        new FiguurApp(root, tekening);
         primaryStage.setScene(scene);
         primaryStage.setTitle("Figuur App");
         primaryStage.show();

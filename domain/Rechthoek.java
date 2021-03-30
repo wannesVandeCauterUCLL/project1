@@ -19,6 +19,8 @@ public class Rechthoek extends Vorm{
             this.breedte = breedte;
             this.hoogte = hoogte;
             this.linkerBovenHoek = linkerBovenhoek;
+
+
             this.omhullende = ((Omhullende) omhullende.getOmhullende(this));
 
 

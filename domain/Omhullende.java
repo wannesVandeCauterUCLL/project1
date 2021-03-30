@@ -28,14 +28,14 @@ public class Omhullende extends Rechthoek {
         super(linkerBovenhoek, breedte, hoogte);
     }
 
-    public Rechthoek getOmhullende(Object vorm){
+    public static Rechthoek getOmhullende(Object vorm){
 
         if(vorm instanceof Rechthoek){
             Rechthoek rechthoek = ((Rechthoek) vorm);
-            minmiumX = rechthoek.getLinkerBovenhoek().getX();
-            maximumX = minmiumX + rechthoek.getBreedte();
-            minmiumY = rechthoek.getLinkerBovenhoek().getY();
-            maximumY = minmiumY + rechthoek.getHoogte();
+            int minmiumX = rechthoek.getLinkerBovenhoek().getX();
+            int maximumX = minmiumX + rechthoek.getBreedte();
+            int minmiumY = rechthoek.getLinkerBovenhoek().getY();
+            int maximumY = minmiumY + rechthoek.getHoogte();
         }
 
         return null;

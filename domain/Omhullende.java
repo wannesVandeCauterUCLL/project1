@@ -7,7 +7,13 @@ public class Omhullende {
     private int hoogte;
 
 
-    public Omhullende(Punt linkerBovenhoek, int breedte, int hoogte) {
+    public Omhullende(Punt linkerBovenhoek, int breedte, int hoogte) throws DomainException {
+        if (breedte < 0 || hoogte < 0) {
+            throw new DomainException("Rechthoek heeft een breedte en hoogte groter dan 0 nodig.");
+        }
+        if (linkerBovenhoek == null) {
+            throw new DomainException("Rechthoek heeft een linkerbovenhoek nodig.");
+        }
         this.positieLinksBoven = linkerBovenhoek;
         this.breedte = breedte;
         this.hoogte = hoogte;

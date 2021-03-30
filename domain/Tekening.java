@@ -55,6 +55,10 @@ public class Tekening {
     }
 
     public boolean equals(Tekening tekening){
+
+
+
+
         return this.getAantalVormen() == tekening.getAantalVormen() && this.vormen.equals(tekening.vormen);
     }
 }

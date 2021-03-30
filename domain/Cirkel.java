@@ -8,7 +8,7 @@ public class Cirkel extends Vorm{
             if(punt == null){
                 throw new DomainException("punt mag niet leeg zijn");
             }
-            if(radius<=0){
+            if(radius <= 0){
                throw new DomainException("int: Radius, kan niet <0 of 0 zijn.");
             }
             else{
@@ -35,10 +35,11 @@ public class Cirkel extends Vorm{
 
         public boolean equals(Cirkel cirkel){
 
-            return this.middelPunt == cirkel.middelPunt && this.radius == cirkel.radius;
+            return this.middelPunt.equals(cirkel.getMiddelPunt()) && this.radius == cirkel.radius;
         }
         public String toString(){
             return "Cirkel: middelpunt: ("+middelPunt.getX()+", "+middelPunt.getY()+") - straal:"+radius;
         }
 
 }
+

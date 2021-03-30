@@ -54,6 +54,10 @@ public class CirkelApp {
                 vorm = new Cirkel(middelpunt, Integer.parseInt(invoerStraal.getText()));
                 tekening.voegToe(vorm);
                 cleanUp(root);
+                root.getChildren().clear();
+                Text uitvoer = new Text();
+                uitvoer.setText(vorm.toString());
+                root.add(uitvoer,0,0);
 
             } catch (NumberFormatException ne){
                 invoerStraal.clear();

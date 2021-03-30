@@ -18,8 +18,7 @@ public class FiguurApp {
                     keuzeMenu.setVisible(false);
                     if (keuzeMenu.getValue()!=null){
 						if (keuzeMenu.getValue().equals("Cirkel")) {
-							new CirkelApp(root);
-
+							new CirkelApp(root, tekening);
 						} else if (keuzeMenu.getValue().equals("Rechthoek")) {
 							new RechthoekApp(root, tekening);
 						} else if (keuzeMenu.getValue().equals("Lijnstuk")){

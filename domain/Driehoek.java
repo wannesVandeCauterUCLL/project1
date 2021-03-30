@@ -4,17 +4,17 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
 
-public class Driehoek {
+public class Driehoek extends Vorm {
 
-    public Punt getHoekpunt1() {
+    public Punt getHoekPunt1() {
         return hoekpunt1;
     }
 
-    public Punt getHoekpunt2() {
+    public Punt getHoekPunt2() {
         return hoekpunt2;
     }
 
-    public Punt getHoekpunt3() {
+    public Punt getHoekPunt3() {
         return hoekpunt3;
     }
 
@@ -23,6 +23,7 @@ public class Driehoek {
     private Punt hoekpunt3;
 
     public Driehoek(Punt hoekpunt1, Punt hoekpunt2, Punt hoekpunt3){
+        super();
         this.hoekpunt1 = hoekpunt1;
         this.hoekpunt2 = hoekpunt2;
         this.hoekpunt3 = hoekpunt3;
@@ -63,7 +64,7 @@ public class Driehoek {
 
     public String toString() {
         String result = "hoekpunt1: (%d, %d) - hoekpunt2: (%d, %d) - hoekpunt3: (%d,%d)";
-        String.format(result, hoekpunt1.getX(),hoekpunt1.getX(),hoekpunt2.getX(),hoekpunt2.getY(),hoekpunt3.getX(),hoekpunt3.getY())
+        String.format(result, hoekpunt1.getX(),hoekpunt1.getX(),hoekpunt2.getX(),hoekpunt2.getY(),hoekpunt3.getX(),hoekpunt3.getY());
         return result;
     }
 }

@@ -6,16 +6,27 @@ public class Rechthoek extends Vorm{
     private int hoogte;
     private Punt linkerBovenHoek;
 
+    private Omhullende omhullende;
+
     public Rechthoek(Punt linkerBovenhoek, int breedte, int hoogte) throws DomainException {
-        if (breedte <= 0 || hoogte <= 0) {
-            throw new DomainException("Rechthoek heeft een breedte en hoogte groter dan 0 nodig.");
+        try {
+            if (breedte <= 0 || hoogte <= 0) {
+                throw new DomainException("Rechthoek heeft een breedte en hoogte groter dan 0 nodig.");
+            }
+            if (linkerBovenhoek == null) {
+                throw new DomainException("Rechthoek heeft een linkerbovenhoek nodig.");
+            }
+            this.breedte = breedte;
+            this.hoogte = hoogte;
+            this.linkerBovenHoek = linkerBovenhoek;
+            this.omhullende = ((Omhullende) omhullende.getOmhullende(this));
+
+
+        }catch(DomainException e){
+
         }
-        if (linkerBovenhoek == null) {
-            throw new DomainException("Rechthoek heeft een linkerbovenhoek nodig.");
-        }
-        this.breedte = breedte;
-        this.hoogte = hoogte;
-        this.linkerBovenHoek = linkerBovenhoek;
+
+
     }
 
     public int getBreedte() {

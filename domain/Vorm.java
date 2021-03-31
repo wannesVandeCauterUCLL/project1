@@ -4,7 +4,8 @@ import javafx.scene.paint.Color;
 import ui.Drawable;
 
 public abstract class Vorm implements Drawable {
-    private Color kleur;
+    private Color kleur = Color.BLACK;
+    private boolean isZichtbaar = true;
 
     public Color getKleur(){
         return kleur;
@@ -21,5 +22,12 @@ public abstract class Vorm implements Drawable {
     //}
     public String toString(){
         return "De kleur van deze vorm: "+this.kleur+". Omhullende:";//+this.getOmhullende();
+    }
+
+    public boolean isZichtbaar(){
+        return this.isZichtbaar;
+    }
+    public void setZichtbaar(boolean bool){
+        this.isZichtbaar = bool;
     }
 }

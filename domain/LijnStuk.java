@@ -1,6 +1,12 @@
 package domain;
 
-public class LijnStuk extends Vorm{
+import javafx.scene.layout.Pane;
+import ui.Drawable;
+import javafx.scene.shape.*;
+import javafx.scene.paint.*;
+
+
+public class LijnStuk extends Vorm implements Drawable {
     private Punt startPunt;
     private Punt eindPunt;
 
@@ -41,5 +47,12 @@ public class LijnStuk extends Vorm{
         lijn += " - eindpunt: ";
         lijn += this.eindPunt.toString();
         return lijn;
+    }
+
+    @Override
+    public void teken(Pane root) {
+        Line lijn = new Line(this.getStartPunt().getX(), this.getStartPunt().getY(), this.getEindPunt().getX(), this.getEindPunt().getY());
+        lijn.setFill(this.getKleur());
+        lijn.setStroke(this.getKleur());
     }
 }

@@ -1,9 +1,10 @@
 package domain;
 
 import javafx.scene.paint.Color;
+import ui.Drawable;
 
-public abstract class Vorm {
 
+public abstract class Vorm implements Drawable {
     private Omhullende omhullende;
 
     private static OmhullendeFactory omhullendeFactory = new OmhullendeFactory();
@@ -16,7 +17,7 @@ public abstract class Vorm {
     public Omhullende getOmhullende() {
         return this.omhullende;
     }
-
+    
     private Color kleur;
 
     public Color getKleur(){

@@ -57,5 +57,6 @@ public class LijnStuk extends Vorm implements Drawable {
         Line lijn = new Line(this.getStartPunt().getX(), this.getStartPunt().getY(), this.getEindPunt().getX(), this.getEindPunt().getY());
         lijn.setFill(this.getKleur());
         lijn.setStroke(this.getKleur());
+        root.getChildren().add(lijn);
     }
 }

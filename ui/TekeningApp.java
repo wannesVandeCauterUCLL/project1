@@ -50,6 +50,7 @@ public class TekeningApp {
 
                 if (keuzeMenu.getValue().equals("Vorm maken")) {
                     keuzeMenu.setValue("");
+
                     new VormMakenApp(root, tekening);
 
                 } else if (keuzeMenu.getValue().equals("Tekening tonen")) {

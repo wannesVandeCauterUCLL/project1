@@ -5,6 +5,8 @@ import ui.Drawable;
 
 
 public abstract class Vorm implements Drawable {
+    private Color kleur = Color.BLACK;
+    private boolean isZichtbaar = true;
     private Omhullende omhullende;
 
     private static OmhullendeFactory omhullendeFactory = new OmhullendeFactory();
@@ -24,8 +26,6 @@ public abstract class Vorm implements Drawable {
         return this.omhullende;
     }
 
-    private Color kleur;
-
     public Color getKleur(){
         return kleur;
     }
@@ -41,5 +41,12 @@ public abstract class Vorm implements Drawable {
     //}
     public String toString(){
         return "De kleur van deze vorm: "+this.kleur+". Omhullende:";//+this.getOmhullende();
+    }
+
+    public boolean isZichtbaar(){
+        return this.isZichtbaar;
+    }
+    public void setZichtbaar(boolean bool){
+        this.isZichtbaar = bool;
     }
 }

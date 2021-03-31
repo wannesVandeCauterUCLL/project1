@@ -106,5 +106,7 @@ public class Driehoek extends Vorm implements Drawable {
         driehoek.setStroke(this.getKleur());
         driehoek.getPoints().addAll(new Double[]{(double) this.getHoekPunt1().getX(), (double) this.getHoekPunt1().getY(), (double) this.getHoekPunt2().getX(),
                 (double) this.getHoekPunt2().getY(), (double) this.getHoekPunt3().getX(), (double) this.getHoekPunt3().getY()});
+
+        root.getChildren().add(driehoek);
     }
 }

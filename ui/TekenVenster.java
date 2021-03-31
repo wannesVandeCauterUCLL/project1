@@ -13,7 +13,8 @@ public class TekenVenster {
     public TekenVenster(Pane root, Tekening tekening){
         if (tekening == null) throw new UiException();
         this.tekening = tekening;
-        this.teken(root);
+        tekening.teken(root);
+        //this.teken(root);
     }
 
     public void teken(Pane root) {

@@ -22,7 +22,11 @@ public class Driehoek extends Vorm {
     private Punt hoekpunt2;
     private Punt hoekpunt3;
 
-    ArrayList<Punt> hoekpuntenLijst;
+    public ArrayList<Punt> getHoekpuntenLijst() {
+        return hoekpuntenLijst;
+    }
+
+    private ArrayList<Punt> hoekpuntenLijst;
     public Driehoek(Punt hoekpunt1, Punt hoekpunt2, Punt hoekpunt3) throws DomainException {
 
         hoekpuntenLijst = new ArrayList<Punt>(Arrays.asList(hoekpunt1, hoekpunt2, hoekpunt3));

@@ -1,7 +1,10 @@
 package domain;
+import javafx.scene.layout.Pane;
+import ui.Drawable;
+
 import java.util.*;
 
-public class Tekening {
+public class Tekening implements Drawable {
     String naamTekening;
     public static final int MIN_X = 0;public static final int MIN_Y = 0;
     public static final int MAX_X = 399; public static final int MAX_Y = 399;
@@ -58,6 +61,11 @@ public class Tekening {
         else{
             return this.getAantalVormen() == tekening.getAantalVormen() && this.vormen.containsAll(tekening.vormen);
         }
+
+    }
+
+    @Override
+    public void teken(Pane root) {
 
     }
 }

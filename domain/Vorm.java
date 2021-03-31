@@ -1,8 +1,9 @@
 package domain;
 
 import javafx.scene.paint.Color;
+import ui.Drawable;
 
-public abstract class Vorm {
+public abstract class Vorm implements Drawable {
     private Color kleur;
 
     public Color getKleur(){

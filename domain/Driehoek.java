@@ -28,14 +28,14 @@ public class Driehoek extends Vorm implements Drawable {
     private Punt hoekpunt3;
 
     public ArrayList<Punt> getHoekpuntenLijst() {
-        return hoekpuntenLijst;
+        return this.hoekpuntenLijst;
     }
 
     private ArrayList<Punt> hoekpuntenLijst;
     public Driehoek(Punt hoekpunt1, Punt hoekpunt2, Punt hoekpunt3) throws DomainException {
         super();
-        create_omHullende(this);
-        hoekpuntenLijst = new ArrayList<Punt>(Arrays.asList(hoekpunt1, hoekpunt2, hoekpunt3));
+        this.hoekpuntenLijst = new ArrayList<Punt>(Arrays.asList(hoekpunt1, hoekpunt2, hoekpunt3));
+        System.out.println("hoekpuntenLijst" + this.hoekpuntenLijst.toString());
         for(Punt punt : hoekpuntenLijst){
             System.out.println(punt);
             if(punt == null){
@@ -46,6 +46,7 @@ public class Driehoek extends Vorm implements Drawable {
         this.hoekpunt1 = hoekpunt1;
         this.hoekpunt2 = hoekpunt2;
         this.hoekpunt3 = hoekpunt3;
+        create_omHullende(this);
 
 
 
@@ -83,8 +84,8 @@ public class Driehoek extends Vorm implements Drawable {
 
     public void sorteerHoekpunten(){
 
-        Collections.sort(hoekpuntenLijst, Punt.xComparator);
-        Collections.sort(hoekpuntenLijst, Punt.yComparator);
+        Collections.sort(this.hoekpuntenLijst, Punt.xComparator);
+        Collections.sort(this.hoekpuntenLijst, Punt.yComparator);
 
         hoekpunt1 = hoekpuntenLijst.get(0);
         hoekpunt2 = hoekpuntenLijst.get(1);

@@ -1,13 +1,16 @@
 package domain;
 
-public class Rechthoek extends Vorm{
+import javafx.scene.layout.Pane;
+import javafx.scene.paint.Color;
+import javafx.scene.shape.Rectangle;
+import ui.Drawable;
+
+public class Rechthoek extends Vorm implements Drawable {
 
     private int breedte;
     private int hoogte;
     private Punt linkerBovenHoek;
 
-    public Rechthoek() {
-    }
 
     public Omhullende getOmhullende() {
         return omhullende;
@@ -16,6 +19,8 @@ public class Rechthoek extends Vorm{
     private Omhullende omhullende;
 
     public Rechthoek(Punt linkerBovenhoek, int breedte, int hoogte) throws DomainException {
+        super();
+        create_omHullende(this);
         try {
             if (breedte <= 0 || hoogte <= 0) {
                 throw new DomainException("Rechthoek heeft een breedte en hoogte groter dan 0 nodig.");
@@ -29,7 +34,6 @@ public class Rechthoek extends Vorm{
 
 
             this.omhullende = new Omhullende(linkerBovenhoek, breedte,hoogte);
-
 
         }catch(DomainException e){
 
@@ -67,6 +71,13 @@ public class Rechthoek extends Vorm{
         ret += " - hoogte: ";
         ret += this.hoogte;
         return ret;
+    }
+
+    @Override
+    public void teken(Pane root) {
+        Rectangle rechthoekGebouw = new Rectangle(this.getLinkerBovenhoek().getX(), this.getLinkerBovenhoek().getY(), this.getBreedte(), this.getHoogte());
+        rechthoekGebouw.setFill(this.getKleur());
+        rechthoekGebouw.setStroke(this.getKleur());
     }
 }
 

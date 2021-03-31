@@ -11,6 +11,8 @@ public class LijnStuk extends Vorm implements Drawable {
     private Punt eindPunt;
 
     public LijnStuk(Punt start, Punt eind) throws DomainException {
+        super();
+        create_omHullende(this);
         this.setStartEnEindPunt(start, eind);
     }
 
@@ -52,7 +54,7 @@ public class LijnStuk extends Vorm implements Drawable {
     @Override
     public void teken(Pane root) {
         Line lijn = new Line(this.getStartPunt().getX(), this.getStartPunt().getY(), this.getEindPunt().getX(), this.getEindPunt().getY());
-
-
+        lijn.setFill(this.getKleur());
+        lijn.setStroke(this.getKleur());
     }
 }

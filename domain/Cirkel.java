@@ -1,6 +1,11 @@
 package domain;
 
-public class Cirkel extends Vorm{
+import javafx.scene.layout.Pane;
+import javafx.scene.paint.Color;
+import javafx.scene.shape.Circle;
+import ui.Drawable;
+
+public class Cirkel extends Vorm implements Drawable {
     private Punt middelPunt;
     private int radius;
         public Cirkel(Punt punt, int radius) throws DomainException {
@@ -41,5 +46,11 @@ public class Cirkel extends Vorm{
             return "Cirkel: middelpunt: ("+middelPunt.getX()+", "+middelPunt.getY()+") - straal:"+radius;
         }
 
+    @Override
+    public void teken(Pane root) {
+        Circle cirkel = new Circle(this.getMiddelPunt().getX(), this.getMiddelPunt().getY(), this.getRadius());
+        cirkel.setFill(this.getKleur());
+        cirkel.setStroke(this.getKleur());
+    }
 }
 

@@ -66,6 +66,8 @@ public class Tekening implements Drawable {
 
     @Override
     public void teken(Pane root) {
-
+        for (Vorm vorm : this.vormen){
+            vorm.teken(root);
+        }
     }
 }

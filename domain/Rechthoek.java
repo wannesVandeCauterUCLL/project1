@@ -19,7 +19,8 @@ public class Rechthoek extends Vorm implements Drawable {
     private Omhullende omhullende;
 
     public Rechthoek(Punt linkerBovenhoek, int breedte, int hoogte) throws DomainException {
-        super(Rechthoek);
+        super();
+        create_omHullende(this);
         try {
             if (breedte <= 0 || hoogte <= 0) {
                 throw new DomainException("Rechthoek heeft een breedte en hoogte groter dan 0 nodig.");

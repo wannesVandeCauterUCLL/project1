@@ -11,6 +11,8 @@ public class LijnStuk extends Vorm implements Drawable {
     private Punt eindPunt;
 
     public LijnStuk(Punt start, Punt eind) throws DomainException {
+        super();
+        create_omHullende(this);
         this.setStartEnEindPunt(start, eind);
     }
 

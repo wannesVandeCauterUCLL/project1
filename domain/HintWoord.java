@@ -4,11 +4,13 @@ package domain;
 public class HintWoord {
     private HintLetter[] hintWoord;
     private String woord;
+
     public HintWoord(String woord){
         if(woord == null || woord == ""){
 
         }
         else {
+            hintWoord = null;
             this.woord = woord;
             char[] ch = new char[woord.length()];
             for (int i = 0; i < woord.length(); i++) {
@@ -30,7 +32,7 @@ public class HintWoord {
     }
 
     public String getWoord(){
-        return "";
+        return hintWoord.toString();
     }
 
     public String toString(){

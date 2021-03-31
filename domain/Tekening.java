@@ -28,10 +28,24 @@ public class Tekening implements Drawable {
         return this.naamTekening;
     }
 
-    public void voegToe(Vorm vorm){
-        if (vorm != null && !this.bevat(vorm)) {
-            vormen.add(vorm);
+    public void voegToe(Vorm vorm) throws DomainException {
+        try{
+            if (vorm != null && !this.bevat(vorm)) {
+                Omhullende omhullende = vorm.getOmhullende();
+                if(omhullende.getMinimumX() >= MIN_X
+                        && omhullende.getMinimumY() >= MIN_Y
+                        && omhullende.getMaximumX() <= MAX_X
+                        && omhullende.getMaximumY() <= MAX_Y){
+                    vormen.add(vorm);
+
+                }else{
+                    throw new DomainException("Vorm ligt buiten het canvas");
+                }
+            }
+        }catch(DomainException e){
+
         }
+
     }
 
     public Vorm getVorm(int vorm){

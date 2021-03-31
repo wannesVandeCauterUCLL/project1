@@ -11,16 +11,11 @@ public class Rechthoek extends Vorm implements Drawable {
     private int hoogte;
     private Punt linkerBovenHoek;
 
-    public Rechthoek() {
-    }
-
-    public Omhullende getOmhullende() {
-        return omhullende;
-    }
 
     private Omhullende omhullende;
 
     public Rechthoek(Punt linkerBovenhoek, int breedte, int hoogte) throws DomainException {
+        super();
         try {
             if (breedte <= 0 || hoogte <= 0) {
                 throw new DomainException("Rechthoek heeft een breedte en hoogte groter dan 0 nodig.");
@@ -31,9 +26,8 @@ public class Rechthoek extends Vorm implements Drawable {
             this.breedte = breedte;
             this.hoogte = hoogte;
             this.linkerBovenHoek = linkerBovenhoek;
+            create_omHullende(this);
 
-
-            this.omhullende = new Omhullende(linkerBovenhoek, breedte,hoogte);
 
 
         }catch(DomainException e){

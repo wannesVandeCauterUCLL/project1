@@ -19,7 +19,7 @@ public class Cirkel extends Vorm implements Drawable {
             else{
                 this.radius = radius;
             }
-
+            create_omHullende(this);
 
         }
     private void setMiddelPunt(Punt punt){

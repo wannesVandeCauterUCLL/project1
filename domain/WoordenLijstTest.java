@@ -15,7 +15,7 @@ public class WoordenLijstTest {
 	private ArrayList<String> geldigeWoorden;
 
 	@Before
-	public void setUp() throws Exception {
+	public void setUp() throws DomainException {
 		geldigeWoorden = new ArrayList<String>();
 		geldigeWoorden.add("test");
 		geldigeWoorden.add("game");
@@ -40,27 +40,35 @@ public class WoordenLijstTest {
 	}
 	
 	@Test
-	public void voegToe_moet_een_woord_toevoegen() {
+	public void voegToe_moet_een_woord_toevoegen() throws DomainException {
 		woordenlijstLeeg.voegToe(geldigeWoorden.get(0));
 		
 		assertEquals(1,woordenlijstLeeg.getAantalWoorden());
 	}
 	
 	@Test (expected = DomainException.class)
-	public void voegToe_moet_exception_gooien_als_gegeven_woord_null() {
+	public void voegToe_moet_exception_gooien_als_gegeven_woord_null() throws DomainException {
 		woordenlijstLeeg.voegToe(null);
 	}
 	
 	@Test (expected = DomainException.class)
-	public void voegToe_moet_exception_gooien_als_gegeven_woord_leeg() {
+	public void voegToe_moet_exception_gooien_als_gegeven_woord_leeg() throws DomainException {
 		woordenlijstLeeg.voegToe("");
 	}
 	
 	@Test (expected = DomainException.class)
-	public void voegToe_moet_exception_gooien_als_gegeven_woord_reeds_in_lijst() {
+	public void voegToe_moet_exception_gooien_als_gegeven_woord_reeds_in_lijst() throws DomainException {
 		String woordAlInLijst = geldigeWoorden.get(2);
 
 		woordenlijstMetGeldigeWoorden.voegToe(woordAlInLijst);
+	}
+
+	@Test
+	public void krijg_random_woord_uit_woordenlijst()throws DomainException{
+
+
+		String s = woordenlijstMetGeldigeWoorden.getRandomWoord();
+		System.out.println(s);
 	}
 
 }

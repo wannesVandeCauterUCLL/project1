@@ -66,11 +66,6 @@ public class HangMan {
 
         return this.hintWoord.getWoord();
 
-
-
-
-
-
     }
 
     public void setSpeler(Speler _speler) throws DomainException {

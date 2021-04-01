@@ -71,4 +71,10 @@ public class WoordenLijstTest {
 		System.out.println(s);
 	}
 
+	@Test (expected = DomainException.class)
+	public void getRandomwoord_met_lege_woordenlijst_geeft_exception()throws DomainException{
+		WoordenLijst woordenlijstLeeg = new WoordenLijst();
+		woordenlijstLeeg.getRandomWoord();
+	}
+
 }

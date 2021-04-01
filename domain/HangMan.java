@@ -56,19 +56,7 @@ public class HangMan {
     }
 
     public String getHint(){
-        Random rand = new Random();
-        String woord = this.hintWoord.getWoord();
-        HintLetter[] woordLijst =  this.hintWoord.getHintWoord();
-        int randomIndex = rand.nextInt((woord.length() - 0) + 1);
-        char randomChar = woord.charAt(randomIndex);
-        for(int i = 0; i< woord.length(); i++){
-            if(woord.charAt(i) == randomChar){
-                woordLijst[i].setGeraden(true);
-            }
-        }
-
-        return this.hintWoord.getWoord();
-
+        return hintWoord.toString();
     }
 
     public void setSpeler(Speler _speler) throws DomainException {

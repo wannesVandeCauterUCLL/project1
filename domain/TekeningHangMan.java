@@ -14,7 +14,7 @@ public class TekeningHangMan extends Tekening{
         try {
             this.voegVormenToe();
         }catch (DomainException e){
-
+            System.out.println(e);
         }
 
 

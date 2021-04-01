@@ -39,7 +39,9 @@ public class Cirkel extends Vorm implements Drawable {
         }
 
         public boolean equals(Cirkel cirkel){
-
+            if (cirkel == null){
+                return false;
+            }
             return this.middelPunt.equals(cirkel.getMiddelPunt()) && this.radius == cirkel.radius;
         }
         public String toString(){

@@ -1,6 +1,7 @@
 package ui;
 
 import db.domain.WoordenLezer;
+import domain.DomainException;
 import domain.Speler;
 import domain.WoordenLijst;
 import javafx.application.Application;
@@ -29,7 +30,11 @@ public class FxHangManApp extends Application {
         invoerNaam.setOnAction( eventIngaveNaam -> {
                     primaryStage.setTitle(invoerNaam.getText());
                     root.getChildren().clear();
-                    new HangManApp(root,new Speler(invoerNaam.getText()), woordenlijst);
+            try {
+                new HangManApp(root,new Speler(invoerNaam.getText()), woordenlijst);
+            } catch (DomainException e) {
+                e.printStackTrace();
+            }
 
         });
 

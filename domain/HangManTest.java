@@ -13,7 +13,7 @@ public class HangManTest {
     private WoordenLijst woordenlijstMetEnkelWoordTest;
 
     @Before
-    public void setUp() throws Exception {
+    public void setUp() throws Exception, DomainException {
         geldigeSpeler = new Speler("naam");
 
         geldigeWoordenlijst = new WoordenLijst();

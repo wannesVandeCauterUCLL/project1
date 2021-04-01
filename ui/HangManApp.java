@@ -1,5 +1,6 @@
 package ui;
 
+import domain.DomainException;
 import domain.HangMan;
 import domain.Speler;
 import domain.WoordenLijst;
@@ -25,7 +26,7 @@ public class HangManApp {
     private int aantal = 0;
 
 
-    public HangManApp(VBox root, Speler speler, WoordenLijst woordenlijst) {
+    public HangManApp(VBox root, Speler speler, WoordenLijst woordenlijst) throws DomainException {
         this.hangman = new HangMan(speler, woordenlijst);
         this.tekening = new TekenVenster(pane,this.hangman.getTekening());
 

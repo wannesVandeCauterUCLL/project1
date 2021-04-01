@@ -1,4 +1,7 @@
 package db.domain;
+import domain.DomainException;
+import domain.WoordenLijst;
+
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.ArrayList;
@@ -7,22 +10,27 @@ import java.util.Scanner;
 
 public class WoordenLezer {
 
-    public ArrayList<String> leesTekstBestand(String tekstBestand){
+    private String tekstBestand;
+
+    public WoordenLezer(String tekstBestand){
+        this.tekstBestand = tekstBestand;
+    }
+
+    public WoordenLijst lees(){
         try {
-            File myObj = new File(tekstBestand);
+            File myObj = new File(this.tekstBestand);
             Scanner myReader = new Scanner(myObj);
 
-
-            ArrayList<String> woordenlijst = new ArrayList<String>();
+            WoordenLijst woordenLijst = new WoordenLijst();
 
             while (myReader.hasNextLine()) {
                 String woord = myReader.nextLine();
-                woordenlijst.add(woord);
+                woordenLijst.voegToe(woord);
             }
             myReader.close();
-            return woordenlijst;
+            return woordenLijst;
 
-        } catch (FileNotFoundException e) {
+        } catch (FileNotFoundException | DomainException e) {
             System.out.println("An error occurred.");
             e.printStackTrace();
         }

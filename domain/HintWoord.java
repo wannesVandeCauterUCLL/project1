@@ -26,7 +26,6 @@ public class HintWoord {
     }
 
 
-
     public boolean raad(char letter){
         boolean raad = false;
         for (int i = 0; woord.length() > i; i++){

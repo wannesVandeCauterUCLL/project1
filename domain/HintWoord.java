@@ -1,41 +1,63 @@
 package domain;
 
-
 public class HintWoord {
-    private HintLetter[] hintWoord;
-    private String woord;
+    private final HintLetter[] hintWoord;
+    private final String woord;
 
-    public HintWoord(String woord){
-        if(woord == null || woord == ""){
+    public HintWoord(String woord) throws DomainException {
+        if (woord != null){
+            hintWoord = new HintLetter[woord.length()];
+            if(woord.isBlank()){
+                throw new DomainException("Woord mag niet leeg zijn");
+            }
+            else {
 
-        }
-        else {
-            hintWoord = null;
-            this.woord = woord;
-            char[] ch = new char[woord.length()];
-            for (int i = 0; i < woord.length(); i++) {
-                ch[i] = woord.charAt(i);
-            }
-            for (int i = 0; woord.length() > i; i++){
-                HintLetter letter = new HintLetter(ch[i]);
-                hintWoord[i] = letter;
+                this.woord = woord;
+                for (int i = 0; woord.length() > i; i++){
+                    HintLetter letter = new HintLetter(woord.charAt(i));
+                    hintWoord[i] = letter;
+                }
             }
         }
+        else{
+            throw new DomainException("Woord mag niet leeg zijn");
+        }
+
     }
 
     public boolean raad(char letter){
-        return false;
+        boolean raad = false;
+        for (int i = 0; woord.length() > i; i++){
+            if (hintWoord[i].raad(letter)){
+                raad = true;
+            }
+        }
+        return raad;
     }
 
     public boolean isGeraden(){
-        return false;
+        for(int i = 0; woord.length() > i; i++){
+            if (!hintWoord[i].isGeraden()){
+                return false;
+            }
+        }
+        return true;
     }
 
     public String getWoord(){
-        return hintWoord.toString();
+        StringBuilder woord = new StringBuilder();
+        for(int i = 0; i<this.woord.length(); i++){
+            woord.append(hintWoord[i].getLetter());
+        }
+        return woord.toString();
     }
 
     public String toString(){
-        return "";
+        StringBuilder woord = new StringBuilder();
+        for(int i = 0; i<this.woord.length(); i++){
+            woord.append(hintWoord[i].toChar()).append(" ");
+        }
+        StringBuilder sb= new StringBuilder(woord.toString());
+        return sb.deleteCharAt(woord.length()-1).toString();
     }
 }

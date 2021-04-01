@@ -1,30 +1,31 @@
 package domain;
 
-
 public class HintWoord {
     private HintLetter[] hintWoord;
     private String woord;
 
-    public HintWoord(String woord){
+    public HintWoord(String woord) throws DomainException {
+        hintWoord = new HintLetter[woord.length()];
         if(woord == null || woord == ""){
-
+            throw new DomainException("Woord mag niet leeg zijn");
         }
         else {
-            hintWoord = null;
             this.woord = woord;
-            char[] ch = new char[woord.length()];
-            for (int i = 0; i < woord.length(); i++) {
-                ch[i] = woord.charAt(i);
-            }
             for (int i = 0; woord.length() > i; i++){
-                HintLetter letter = new HintLetter(ch[i]);
+                HintLetter letter = new HintLetter(woord.charAt(i));
                 hintWoord[i] = letter;
             }
         }
     }
 
     public boolean raad(char letter){
-        return false;
+        boolean raad = false;
+        for (int i = 0; woord.length() > i; i++){
+            if (hintWoord[i].raad(letter)){
+                raad = true;
+            }
+        }
+        return raad;
     }
 
     public boolean isGeraden(){
@@ -32,10 +33,19 @@ public class HintWoord {
     }
 
     public String getWoord(){
-        return hintWoord.toString();
+        String woord = "";
+        for(int i = 0; i<this.woord.length(); i++){
+            woord += hintWoord[i].getLetter();
+        }
+        return woord;
     }
 
     public String toString(){
-        return "";
+        String woord = "";
+        for(int i = 0; i<this.woord.length(); i++){
+            woord += hintWoord[i].toChar()+" ";
+        }
+        StringBuffer sb= new StringBuffer(woord);
+        return sb.deleteCharAt(woord.length()-1).toString();
     }
 }

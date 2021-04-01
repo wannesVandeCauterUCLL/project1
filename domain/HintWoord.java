@@ -1,21 +1,28 @@
 package domain;
 
 public class HintWoord {
-    private HintLetter[] hintWoord;
-    private String woord;
+    private final HintLetter[] hintWoord;
+    private final String woord;
 
     public HintWoord(String woord) throws DomainException {
-        hintWoord = new HintLetter[woord.length()];
-        if(woord == null || woord == ""){
-            throw new DomainException("Woord mag niet leeg zijn");
-        }
-        else {
-            this.woord = woord;
-            for (int i = 0; woord.length() > i; i++){
-                HintLetter letter = new HintLetter(woord.charAt(i));
-                hintWoord[i] = letter;
+        if (woord != null){
+            hintWoord = new HintLetter[woord.length()];
+            if(woord.isBlank()){
+                throw new DomainException("Woord mag niet leeg zijn");
+            }
+            else {
+
+                this.woord = woord;
+                for (int i = 0; woord.length() > i; i++){
+                    HintLetter letter = new HintLetter(woord.charAt(i));
+                    hintWoord[i] = letter;
+                }
             }
         }
+        else{
+            throw new DomainException("Woord mag niet leeg zijn");
+        }
+
     }
 
     public boolean raad(char letter){
@@ -29,7 +36,12 @@ public class HintWoord {
     }
 
     public boolean isGeraden(){
-        return false;
+        for(int i = 0; woord.length() > i; i++){
+            if (!hintWoord[i].isGeraden()){
+                return false;
+            }
+        }
+        return true;
     }
 
     public String getWoord(){

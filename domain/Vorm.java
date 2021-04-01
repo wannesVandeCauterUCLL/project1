@@ -18,6 +18,7 @@ public abstract class Vorm implements Drawable {
 
     public void create_omHullende(Vorm vorm) throws DomainException {
         this.omhullende = omhullendeFactory.getOmhullende(vorm);
+
     }
 
 

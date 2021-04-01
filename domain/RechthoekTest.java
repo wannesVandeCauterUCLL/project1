@@ -85,14 +85,14 @@ public class RechthoekTest {
 
 
 	@Test
-	public void klopt_de_omhullend() throws DomainException {
-		Punt linkerBovenHoek = new Punt(100,100);
+	public void klopt_de_omhullende() throws DomainException {
+		Punt linkerBovenHoekPunt = new Punt(100,100);
 		int breedte = 100;
 		int hoogte = 100;
-		Rechthoek rechthoek = new Rechthoek(linkerBovenHoek,breedte, hoogte);
-		Omhullende omhullende = new Omhullende(linkerBovenhoek,breedte,hoogte);
+		Rechthoek rechthoek = new Rechthoek(linkerBovenHoekPunt,breedte, hoogte);
+		//Omhullende omhullende = new Omhullende(linkerBovenhoek,breedte,hoogte);
 		assertTrue(rechthoek.equals(rechthoek.getOmhullende()));
-
+		System.out.println("test");
 
 	}
 

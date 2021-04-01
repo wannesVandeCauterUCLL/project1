@@ -72,14 +72,18 @@ public class Driehoek extends Vorm implements Drawable {
 
     }
 
-    public Boolean equels(Driehoek _driehoek){
+    public Boolean equals(Driehoek _driehoek){
         Collections.sort(hoekpuntenLijst, Punt.xComparator);
         Collections.sort(hoekpuntenLijst, Punt.yComparator);
         Collections.sort(_driehoek.hoekpuntenLijst , Punt.xComparator);
         Collections.sort(_driehoek.hoekpuntenLijst, Punt.yComparator);
 
-        if(this.hoekpuntenLijst == _driehoek.hoekpuntenLijst) return true;
-        else return false;
+        if (this.hoekpuntenLijst.get(0).equals(_driehoek.hoekpuntenLijst.get(0)) && this.hoekpuntenLijst.get(1).equals(_driehoek.hoekpuntenLijst.get(1)) && this.hoekpuntenLijst.get(2).equals(_driehoek.hoekpuntenLijst.get(2))){
+            return true;
+        }
+        else {
+            return false;
+        }
     }
 
     public void sorteerHoekpunten(){

@@ -1,5 +1,6 @@
 package ui;
 
+import domain.DomainException;
 import domain.Speler;
 import javafx.application.Application;
 import javafx.scene.Scene;
@@ -21,7 +22,11 @@ public class FxWoordRadenApp extends Application {
         invoerNaam.setOnAction(eventIngaveNaam -> {
             primaryStage.setTitle(invoerNaam.getText());
             root.getChildren().clear();
-            new WoordRadenApp(root, new Speler(invoerNaam.getText()));
+            try {
+                new WoordRadenApp(root, new Speler(invoerNaam.getText()));
+            } catch (DomainException e) {
+                e.printStackTrace();
+            }
         });
 
         primaryStage.show();

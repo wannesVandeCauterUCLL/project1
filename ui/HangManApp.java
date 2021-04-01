@@ -65,11 +65,15 @@ public class HangManApp {
         });
 
         invoerLetter.setOnAction(eventIngaveLetter -> {
-            if (hangman.raad(invoerLetter.getText().charAt(0))) {
-                hintwoordUitvoer.setText(this.hangman.getHint());
-            }
-            else {
-                this.tekening = new TekenVenster(pane,this.hangman.getTekening());
+            try {
+                if (hangman.raad(invoerLetter.getText().charAt(0))) {
+                    hintwoordUitvoer.setText(this.hangman.getHint());
+                }
+                else {
+                    this.tekening = new TekenVenster(pane,this.hangman.getTekening());
+                }
+            } catch (DomainException e) {
+                e.printStackTrace();
             }
             invoerBox.setDisable(true);
         });

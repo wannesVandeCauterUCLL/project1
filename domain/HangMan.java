@@ -42,13 +42,16 @@ public class HangMan {
     }
 
     public boolean isGameOver(){
-        return this.beurtenOver > 0;
+        return this.beurtenOver <= 0;
     }
 
-    public Boolean raad(char _char){
+    public Boolean raad(char _char) throws DomainException {
         this.beurtenOver -= 1;
         if(hintWoord.isGeraden()) this.gewonnen = true;
-        return this.hintWoord.raad(_char);
+        boolean gok = this.hintWoord.raad(_char);
+        if(!gok && !hintWoord.isGeraden()) this.tekening.zetVolgendeZichtbaar();
+        if(hintWoord.isGeraden() == true ) this.gewonnen = true;
+        return gok;
         
     }
 
@@ -58,7 +61,7 @@ public class HangMan {
         HintLetter[] woordLijst =  this.hintWoord.getHintWoord();
         int randomIndex = rand.nextInt((woord.length() - 0) + 1);
         char randomChar = woord.charAt(randomIndex);
-        for(int i = 0; i<= woord.length(); i++){
+        for(int i = 0; i< woord.length(); i++){
             if(woord.charAt(i) == randomChar){
                 woordLijst[i].setGeraden(true);
             }
@@ -70,7 +73,7 @@ public class HangMan {
 
     public void setSpeler(Speler _speler) throws DomainException {
         if(_speler  == null ) throw new DomainException("Speler mag niet null zijn");
-        this.speler = speler;
+        this.speler = _speler;
     }
 
     public void setWoordenLijst(WoordenLijst _woordenLijst){

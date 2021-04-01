@@ -17,7 +17,7 @@ public class FxHangManApp extends Application {
 
     @Override
     public void start(Stage primaryStage) {
-        WoordenLezer woordenlezer = new WoordenLezer("hangman.txt");
+        WoordenLezer woordenlezer = new WoordenLezer("ui/hangman.txt");
         WoordenLijst woordenlijst = woordenlezer.lees();
 
         VBox root = new VBox();

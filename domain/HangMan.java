@@ -22,7 +22,7 @@ public class HangMan {
         return tekening;
     }
 
-    private WoordenLijst woordenLijst;
+    private WoordenLijst woordenLijst = new WoordenLijst();
 
     private boolean gewonnen;
     private TekeningHangMan tekening;
@@ -37,7 +37,7 @@ public class HangMan {
         this.gewonnen = false;
         this.tekening = new TekeningHangMan();
         this.hintWoord = new HintWoord(this.woordenLijst.getRandomWoord());
-        this.beurtenOver = 18;
+        this.beurtenOver = 13;
 
     }
 
@@ -56,7 +56,9 @@ public class HangMan {
     }
 
     public String getHint(){
-        return hintWoord.toString();
+
+        return this.hintWoord.toString();
+
     }
 
     public void setSpeler(Speler _speler) throws DomainException {
@@ -66,7 +68,7 @@ public class HangMan {
 
     public void setWoordenLijst(WoordenLijst _woordenLijst){
         try {
-            if(_woordenLijst  == null ) throw new DomainException("Woordenlijst mag niet null zijn");
+            if(_woordenLijst == null) throw new DomainException("Woordenlijst mag niet null zijn");
             this.woordenLijst = _woordenLijst;
         }catch(DomainException e){
             System.out.println(e);

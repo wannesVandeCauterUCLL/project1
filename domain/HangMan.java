@@ -22,7 +22,7 @@ public class HangMan {
         return tekening;
     }
 
-    private WoordenLijst woordenLijst = new WoordenLijst();
+    private WoordenLijst woordenLijst;
 
     private boolean gewonnen;
     private TekeningHangMan tekening;
@@ -57,6 +57,7 @@ public class HangMan {
 
     public String getHint(){
 
+
         return this.hintWoord.toString();
 
     }
@@ -68,7 +69,7 @@ public class HangMan {
 
     public void setWoordenLijst(WoordenLijst _woordenLijst){
         try {
-            if(_woordenLijst == null) throw new DomainException("Woordenlijst mag niet null zijn");
+            if(_woordenLijst  == null ) throw new DomainException("Woordenlijst mag niet null zijn");
             this.woordenLijst = _woordenLijst;
         }catch(DomainException e){
             System.out.println(e);

@@ -37,7 +37,7 @@ public class HangMan {
         this.gewonnen = false;
         this.tekening = new TekeningHangMan();
         this.hintWoord = new HintWoord(this.woordenLijst.getRandomWoord());
-        this.beurtenOver = 13;
+        this.beurtenOver = 14;
 
     }
 

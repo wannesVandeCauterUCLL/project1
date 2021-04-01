@@ -1,6 +1,11 @@
 package domain;
 
 public class HintWoord {
+
+    public HintLetter[] getHintWoord() {
+        return hintWoord;
+    }
+
     private final HintLetter[] hintWoord;
     private final String woord;
 
@@ -22,8 +27,8 @@ public class HintWoord {
         else{
             throw new DomainException("Woord mag niet leeg zijn");
         }
-
     }
+
 
 
     public boolean raad(char letter){

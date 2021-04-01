@@ -2,6 +2,11 @@ package domain;
 
 public class HintLetter {
     private char letter;
+
+    public void setGeraden(boolean geraden) {
+        isGeraden = geraden;
+    }
+
     private boolean isGeraden;
 
     public HintLetter(char letter){

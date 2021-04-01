@@ -1,5 +1,7 @@
 package domain;
 
+import java.util.Random;
+
 public class HangMan {
 
     private Speler speler;
@@ -43,26 +45,37 @@ public class HangMan {
         return this.beurtenOver > 0;
     }
 
-    public void raad(char _char){
-        if(this.beurtenOver > 0){
-            this.beurtenOver -= 1;
-            if(hintWoord.isGeraden()) this.gewonnen = true;
-        }
-
-
+    public Boolean raad(char _char){
+        this.beurtenOver -= 1;
+        if(hintWoord.isGeraden()) this.gewonnen = true;
+        return this.hintWoord.raad(_char);
+        
     }
 
     public String getHint(){
-        return hintWoord.getHint();
+        Random rand = new Random();
+        String woord = this.hintWoord.getWoord();
+        HintLetter[] woordLijst =  this.hintWoord.getHintWoord();
+        int randomIndex = rand.nextInt((woord.length() - 0) + 1);
+        char randomChar = woord.charAt(randomIndex);
+        for(int i = 0; i<= woord.length(); i++){
+            if(woord.charAt(i) == randomChar){
+                woordLijst[i].setGeraden(true);
+            }
+        }
+
+        return this.hintWoord.getWoord();
+
+
+
+
+
+
     }
 
-    public void setSpeler(Speler _speler) {
-        try {
-            if(_speler  == null ) throw new DomainException("Speler mag niet null zijn");
-            this.speler = speler;
-        }catch(DomainException e){
-            System.out.println(e);
-        }
+    public void setSpeler(Speler _speler) throws DomainException {
+        if(_speler  == null ) throw new DomainException("Speler mag niet null zijn");
+        this.speler = speler;
     }
 
     public void setWoordenLijst(WoordenLijst _woordenLijst){

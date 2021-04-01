@@ -53,7 +53,7 @@ public class HangMan {
     }
 
     public String getHint(){
-        return hintWoord.getHint();
+        return hintWoord.getWoord();
     }
 
     public void setSpeler(Speler _speler) {

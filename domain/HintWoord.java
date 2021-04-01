@@ -45,19 +45,19 @@ public class HintWoord {
     }
 
     public String getWoord(){
-        String woord = "";
+        StringBuilder woord = new StringBuilder();
         for(int i = 0; i<this.woord.length(); i++){
-            woord += hintWoord[i].getLetter();
+            woord.append(hintWoord[i].getLetter());
         }
-        return woord;
+        return woord.toString();
     }
 
     public String toString(){
-        String woord = "";
+        StringBuilder woord = new StringBuilder();
         for(int i = 0; i<this.woord.length(); i++){
-            woord += hintWoord[i].toChar()+" ";
+            woord.append(hintWoord[i].toChar()).append(" ");
         }
-        StringBuffer sb= new StringBuffer(woord);
+        StringBuilder sb= new StringBuilder(woord.toString());
         return sb.deleteCharAt(woord.length()-1).toString();
     }
 }

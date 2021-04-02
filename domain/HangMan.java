@@ -46,10 +46,12 @@ public class HangMan {
     }
 
     public Boolean raad(char _char) throws DomainException {
-        this.beurtenOver -= 1;
         if(hintWoord.isGeraden()) this.gewonnen = true;
         boolean gok = this.hintWoord.raad(_char);
-        if(!gok && !hintWoord.isGeraden()) this.tekening.zetVolgendeZichtbaar();
+        if(!gok && !hintWoord.isGeraden()) {
+            this.tekening.zetVolgendeZichtbaar();
+            this.beurtenOver -= 1;
+        }
         if(hintWoord.isGeraden() == true ) this.gewonnen = true;
         return gok;
         

@@ -92,7 +92,6 @@ public class RechthoekTest {
 		Rechthoek rechthoek = new Rechthoek(linkerBovenHoekPunt,breedte, hoogte);
 		//Omhullende omhullende = new Omhullende(linkerBovenhoek,breedte,hoogte);
 		assertTrue(rechthoek.equals(rechthoek.getOmhullende()));
-		System.out.println("test");
 
 	}
 

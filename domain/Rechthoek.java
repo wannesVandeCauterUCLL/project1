@@ -27,7 +27,6 @@ public class Rechthoek extends Vorm implements Drawable {
             this.hoogte = hoogte;
             this.linkerBovenHoek = linkerBovenhoek;
             this.create_omHullende(this);
-            System.out.println("test2");
 
 
         }catch(DomainException e){
